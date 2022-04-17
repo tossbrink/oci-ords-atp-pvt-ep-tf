@@ -8,7 +8,7 @@ You will be completely provisioned with following resources:
     - VM.Standard3.Flex, 1-OCPU, 10-GB memory
     - Oracle Linux 7.9, x86_64
     - ORDS, Jetty Webserver, SQLCL, SQLPLUS
-# 3. ADB
+* 3. ADB
     - ATP with private endpoint
 
 ### Clone this Repository
