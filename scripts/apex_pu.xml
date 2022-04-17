@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Saved on Wed Dec 16 06:41:23 UTC 2020</comment>
+<entry key="db.password">{password}</entry>
+<entry key="db.username">ORDS_PUBLIC_USER1</entry>
+<entry key="db.wallet.zip.path">/home/oracle/{wallet_file}</entry>
+<entry key="db.wallet.zip.service">{db_name}_high</entry>
+</properties>
