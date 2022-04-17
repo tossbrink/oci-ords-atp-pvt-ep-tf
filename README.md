@@ -2,6 +2,14 @@
 Deploy Customer Managed Oracle REST Data Services and connected to Autonomous Database on private subnet using terraform CLI as IaaC
 
 ## Introduction
+You will be completely provisioned with following resources:
+* 1. Vcn, Subnets, IGW, NAT, NSG's, TAG's
+* 2. Web Server
+    - VM.Standard3.Flex, 1-OCPU, 10-GB memory
+    - Oracle Linux 7.9, x86_64
+    - ORDS, Jetty Webserver, SQLCL, SQLPLUS
+# 3. ADB
+    - ATP with private endpoint
 
 ### Clone this Repository
 
@@ -32,7 +40,7 @@ git clone https://github.com/tossbrink/oci-ords-atp-pvt-ep-tf.git
 
 ### OCI Tenancy
 
-- Permission to `manage` the following types of resources in your Oracle Cloud Infrastructure tenancy on the compartment specficed in terraform.tfvars file: `vcns`, `internet-gateways`, `route-tables`, `network-security-groups`, `subnets`, `autonomous-database-family`, `tags` and `instances`.
+- Permission to `manage` the following types of resources in your Oracle Cloud Infrastructure tenancy compartment specficed in terraform.tfvars: `vcns`, `internet-gateways`, `route-tables`, `network-security-groups`, `subnets`, `autonomous-database-family`, `tags` and `instances`.
 
 ## Do this first
 
@@ -53,15 +61,28 @@ ssh_public_key="<~/.ssh/id_rsa.pub>"
 ATP_password = "<atppassword>"
 ```
 
-## Deploy the Resources using Terraform CLI
-### Create Resoruce
+## Deploy the Resources 
+### 1.Create Resoruce using Terraform CLI
 Run the following commands:
 
     terraform init
     terraform plan
     terraform apply
 
-### Destroy the Deployment
-When no longer needed you can destroy the resources:
+### 2.Access ORDS 
+    http://<public.ip.address>:8080/ords/sql-developer
+
+## Clean up the Deployment
+When no longer needed you can destroy the resources and really easy with terraform:
 
     terraform destroy
+
+## Useful command
+### Start ORDS
+```shell
+    sudo su - oracle -c 'java -jar -Duser.timezone=UTC /opt/oracle/ords/ords.war standalone'
+```
+### Kill ORDS
+```shell
+    ps -ef | grep ords.war | awk '{print $2}'
+```
