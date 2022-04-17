@@ -50,9 +50,6 @@ resource "oci_core_instance" "Webserver1" {
     subnet_id = !var.use_existing_vcn ? oci_core_subnet.WebSubnet[0].id : var.compute_subnet_id
     nsg_ids   = !var.use_existing_nsg ? [oci_core_network_security_group.WebSecurityGroup[0].id, oci_core_network_security_group.SSHSecurityGroup[0].id] : [var.compute_nsg_id]
     assign_public_ip = true
-    #subnet_id = "ocid1.subnet.oc1.phx.aaaaaaaalxg3jm5mpt65pqdq4w4le22zgjhp6wqsjyqsfsrpo4cd3jssocza"
-    #nsg_ids = ["ocid1.networksecuritygroup.oc1.phx.aaaaaaaaijwxyiaphskkz7s62jwhrdhb5omkndapugu7ztugxlavny5z42da", 
-               #"ocid1.networksecuritygroup.oc1.phx.aaaaaaaayf6ku2n66ykzacifdqidervubapitutbckp44fw2yksfsn6bvc5a"]
   }
 
   defined_tags = { "${oci_identity_tag_namespace.ArchitectureCenterTagNamespace.name}.${oci_identity_tag.ArchitectureCenterTag.name}" = var.release }
