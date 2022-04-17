@@ -42,6 +42,7 @@ git clone https://github.com/tossbrink/oci-ords-atp-pvt-ep-tf.git
 ```
 
 ### 2.Edit terraform.tfvars file to point your tenancy, governance, IAM and other partameters
+```
 tenancy_ocid="<ocid.tenancy>"
 compartment_ocid="<ocid.compartment>"
 region="<region>"
@@ -50,8 +51,7 @@ user_ocid="<ocid.user.>"
 private_key_path="<~/.oci/oci_api_key.pem>"
 ssh_public_key="<~/.ssh/id_rsa.pub>"
 ATP_password = "<atppassword>"
-
-
+```
 
 ## Deploy the Resources using Terraform CLI
 ### Create Resoruce
@@ -65,5 +65,3 @@ Run the following commands:
 When no longer needed you can destroy the resources:
 
     terraform destroy
-
-## Deploy using standalone Terraform
