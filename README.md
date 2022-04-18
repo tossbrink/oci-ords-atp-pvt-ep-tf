@@ -2,7 +2,7 @@
 Deploy Customer Managed Oracle REST Data Services and connected to Autonomous Database on private subnet using terraform CLI as IaaC
 
 ## Introduction
-You will be completely provisioned with following resources:
+You will be completely provisioning with following resources:
 * 1. Vcn, Subnets, IGW, NAT, NSG's, TAG's
 * 2. Web Server
     - VM.Standard3.Flex, 1-OCPU, 10-GB memory
